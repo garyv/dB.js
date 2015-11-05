@@ -18,7 +18,7 @@ var Cookies = {
     },
 
     set: function(key, content) {      
-        document.cookie = key + '=' + content + ';expires=' + Cookies.expires();
+        document.cookie = key + '=' + content + ';path=/;expires=' + Cookies.expires();
     },
 
     session: true,

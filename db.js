@@ -24,11 +24,14 @@ if (document.cookie) {
     dB.setCookie = function(key, x) {      
        var expires = new Date();
        expires.setTime(expires.getTime() + 9 * 365*24*60*60*1000); 
-       document.cookie = key + '=' + x + ';expires=' + expires.toUTCString();
+       document.cookie = key + '=' + x + ';path=/;expires=' + expires.toUTCString();
     }
 }
+(functin() {
+    dB.get = dB.getLocal || dB.getCookie;
+    dB.set = dB.setLocal || dB.setCookie;
+    window.db = dB;
+})();
+  
 
-dB.get = dB.getLocal || dB.getCookie;
-dB.set = dB.setLocal || dB.setCookie;
 
-window.db = dB;
